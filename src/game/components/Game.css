@@ -1,6 +1,6 @@
 .PlayerPortrait {
-    width: 100px;
-    height: 100px;
+    width: 10.4166666667%;
+    height: 18.5185185185%;
     position: absolute;
     background-color: #5f8fdd;
     border-radius: 50%;
@@ -8,51 +8,112 @@
 
 .PlayerShield {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: #353638;
+    width: 25%;
+    height: 25%;
+    background: linear-gradient(#919191, #adadad, #9e9e9e);
+    border: 2px solid #b2b2b2;
+    text-align: center;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
 }
+
+.PlayerPower {
+    position: absolute;
+    width: 25%;
+    height: 25%;
+    background: #a84343;
+    border: 2px solid #661d1d;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.PlayerShield .ShieldAmount, .PlayerPower .BattlePower {
+    line-height: 1.5;
+    font-weight: bold;
+    text-shadow: 0 0 1px black;
+    font-size: 14pt;
+}
+
 
 .Player1 {
     left: 50%;
-    margin-left: -50px;
-    bottom: 1px;
+    margin-left: -5%;
+    bottom: 50px;
 }
 
-.Player1Shield {
+.Player1 .PlayerShield {
     bottom: 0;
     right: 0;
+}
+
+.Player1 .PlayerPower {
+    bottom: 0;
+    left: 0;
 }
 
 .Player2 {
     left: 50%;
-    margin-left: -50px;
-    top: 1px;
+    margin-left: -5%;
+    top: 50px;
 }
 
-.Player2Shield {
+.Player2 .PlayerShield {
     bottom: 0;
     right: 0;
 }
 
-.Player3 {
+.Player2 .PlayerPower {
+    bottom: 0;
     left: 0;
-    margin-top: -50px;
+}
+
+.Player3 {
+    left: 50px;
+    margin-top: -8.88888888889%;
     top: 50%;
 }
 
-.Player3Shield {
+.Player3 .PlayerPower {
+    bottom: 0;
+    left: 0;
+}
+
+.Player3 .PlayerShield {
     bottom: 0;
     right: 0;
 }
 
 .Player4 {
-    right: 0;
-    margin-top: -50px;
+    right: 50px;
+    margin-top: -8.88888888889%;
     top: 50%;
 }
 
-.Player4Shield {
+.Player4 .PlayerShield {
     bottom: 0;
     left: 0;
+}
+
+.Player4 .PlayerPower {
+    bottom: 0;
+    right: 0;
+}
+
+.Card {
+    width: 9.2%;
+    height: 22.2222222222%;
+}
+
+.StoryDeck {
+    position: absolute;
+    bottom: 2%;
+    right: 1%;
+    background-color: red;
+}
+
+.AdventureDeck {
+    position: absolute;
+    bottom: 2%;
+    left: 1%;
+    background-color: red;
 }
