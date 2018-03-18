@@ -1,0 +1,58 @@
+.PlayerPortrait {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-color: #5f8fdd;
+    border-radius: 50%;
+}
+
+.PlayerShield {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #353638;
+}
+
+.Player1 {
+    left: 50%;
+    margin-left: -50px;
+    bottom: 1px;
+}
+
+.Player1Shield {
+    bottom: 0;
+    right: 0;
+}
+
+.Player2 {
+    left: 50%;
+    margin-left: -50px;
+    top: 1px;
+}
+
+.Player2Shield {
+    bottom: 0;
+    right: 0;
+}
+
+.Player3 {
+    left: 0;
+    margin-top: -50px;
+    top: 50%;
+}
+
+.Player3Shield {
+    bottom: 0;
+    right: 0;
+}
+
+.Player4 {
+    right: 0;
+    margin-top: -50px;
+    top: 50%;
+}
+
+.Player4Shield {
+    bottom: 0;
+    left: 0;
+}
