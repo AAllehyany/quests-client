@@ -29,7 +29,7 @@ const inititalState = {
 };
 
 
-expor
+
 
 export default function gameReducer(state = inititalState, action) {
     
