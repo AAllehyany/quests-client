@@ -1,18 +1,24 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
 import './Game.css';
 
 import PlayerPortrait from './PlayerPortrait';
 
+const mapStateToProps = (state) => ({
+    players: state.game.players
+});
+
 class Game extends Component {
 
+    constructor(props) {
+        super(props);
+        this.props = props;
+    }
+
     render() {
-        let players = [
-            {shields: 0, bp: 5, id:1},
-            {shields: 0, bp: 5, id:2},
-            {shields: 0, bp: 5, id:3},
-            {shields: 0, bp: 5, id:4},
-        ]
+        let players = this.props.players;
+        
         return (
             <div>
                 {players.map((player, index) => 
@@ -22,12 +28,15 @@ class Game extends Component {
                         player={player}
                     />
                 ) }
-                <div className='StoryDeck Card'></div>
-                <div className='AdventureDeck Card'></div>
+
+                <div className="Field Player1Field"></div>
+                <div className="Field Player2Field"></div>
+                <div className="Field Player3Field"></div>
+                <div className="Field Player4Field"></div>
             </div>
             
         )
     }
 }
 
-export default Game;
+export default connect(mapStateToProps, null)(Game);

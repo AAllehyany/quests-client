@@ -1,6 +1,6 @@
 .PlayerPortrait {
-    width: 10.4166666667%;
-    height: 18.5185185185%;
+    width: 5.20833333333%;
+    height: 9.25925925926%;
     position: absolute;
     background-color: #5f8fdd;
     border-radius: 50%;
@@ -8,8 +8,8 @@
 
 .PlayerShield {
     position: absolute;
-    width: 25%;
-    height: 25%;
+    width: 35%;
+    height: 35%;
     background: linear-gradient(#919191, #adadad, #9e9e9e);
     border: 2px solid #b2b2b2;
     text-align: center;
@@ -19,8 +19,8 @@
 
 .PlayerPower {
     position: absolute;
-    width: 25%;
-    height: 25%;
+    width: 35%;
+    height: 35%;
     background: #a84343;
     border: 2px solid #661d1d;
     text-align: center;
@@ -31,14 +31,14 @@
     line-height: 1.5;
     font-weight: bold;
     text-shadow: 0 0 1px black;
-    font-size: 14pt;
+    font-size: 12pt;
 }
 
 
 .Player1 {
     left: 50%;
-    margin-left: -5%;
-    bottom: 50px;
+    margin-left: -2.5%;
+    bottom: 1%;
 }
 
 .Player1 .PlayerShield {
@@ -53,8 +53,8 @@
 
 .Player2 {
     left: 50%;
-    margin-left: -5%;
-    top: 50px;
+    margin-left: -2.5%;
+    top: 1%;
 }
 
 .Player2 .PlayerShield {
@@ -68,8 +68,8 @@
 }
 
 .Player3 {
-    left: 50px;
-    margin-top: -8.88888888889%;
+    left: 1%;
+    margin-top: -4.5%;
     top: 50%;
 }
 
@@ -84,8 +84,8 @@
 }
 
 .Player4 {
-    right: 50px;
-    margin-top: -8.88888888889%;
+    right: 1%;
+    margin-top: -4.5%;
     top: 50%;
 }
 
@@ -100,8 +100,8 @@
 }
 
 .Card {
-    width: 9.2%;
-    height: 22.2222222222%;
+    width: 5.30520833333%;
+    height: 13.7296296296%;
 }
 
 .StoryDeck {
@@ -117,3 +117,30 @@
     left: 1%;
     background-color: red;
 }
+
+.Field {
+    position: absolute;
+    background: yellow;
+}
+
+.Player1Field, .Player2Field {
+    width: 53.0520833333%;
+    height: 13.7296296296%;
+    left: 50%;
+    margin-left: -26.5260416666%;
+}
+
+.Player1Field { bottom: 18%; }
+
+.Player2Field { top: 18%; }
+
+.Player3Field, .Player4Field {
+    width: 9.43148148148%;
+    height: 68.5185185185%;
+    top: 50%;
+    margin-top: -20%;
+}
+
+.Player3Field { left: 10%; }
+
+.Player4Field { right: 10%; }
