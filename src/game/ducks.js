@@ -16,7 +16,7 @@ const CHANGE_PLAYER = 'CHANGE_PLAYER';
  * quests, tourneys and events!
  */
 const inititalState = {
-    players: [],
+    players: [{id: 0, shield: 10}],
     revealedCard: {},
     over: false,
     started: false,
