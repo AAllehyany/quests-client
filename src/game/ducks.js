@@ -88,7 +88,6 @@ export default function gameReducer(state = inititalState, action) {
         case CHANGE_PLAYER:
             return Object.assign({}, state, {
                 currentPlayer: action.currentPlayer
-<<<<<<< HEAD
             })   
         case INVALID_EVENT:
             return Object.assign({}, state, {
@@ -103,9 +102,6 @@ export default function gameReducer(state = inititalState, action) {
         case REVEAL_STORY:
         
         case ERROR: 
-            
-=======
-            });
         
         case "STAGES_SETUP_SUCCESSFUL":
             return Object.assign({}, state, {
@@ -142,7 +138,6 @@ export default function gameReducer(state = inititalState, action) {
             }) 
         
         
->>>>>>> 823bd1ccd1781872bbf674062996ad8431245609
     }
 
     return state;
