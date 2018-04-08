@@ -22,7 +22,8 @@ const ERROR = 'ERROR';
  * quests, tourneys and events!
  */
 const inititalState = {
-    players: [{id: 0, shield: 10}],
+    players: [{ id: 0, shield: 10 }],
+    playerId: -1,
     revealedCard: {},
     over: false,
     started: false,
@@ -31,6 +32,7 @@ const inititalState = {
     currentPhase: 'StartTurn',
     currentTurn: -1,
     currentPlayer: 0,
+    currentQuest: {}
 
 };
 
@@ -86,6 +88,7 @@ export default function gameReducer(state = inititalState, action) {
         case CHANGE_PLAYER:
             return Object.assign({}, state, {
                 currentPlayer: action.currentPlayer
+<<<<<<< HEAD
             })   
         case INVALID_EVENT:
             return Object.assign({}, state, {
@@ -101,6 +104,45 @@ export default function gameReducer(state = inititalState, action) {
         
         case ERROR: 
             
+=======
+            });
+        
+        case "STAGES_SETUP_SUCCESSFUL":
+            return Object.assign({}, state, {
+                currentQuest: action.data
+            })
+            
+        case "STAGES_SETUP_SUCCESSFUL_SPONSOR":
+            return Object.assign({}, stat, {
+                currentQuest: action.data
+            }) 
+        
+        case "PLAY_QUEST_SETUP_COMPLETE_PLAYER":
+            return Object.assign({}, state, {
+                players: state.players.map(p => {
+                    if(p.id === state.playerId) {
+                        return Object.assign({}, p, {
+                            temp: action.data
+                        })
+                    }
+
+                    return p;
+                })
+            })
+        
+        case "PLAY_QUEST_SETUP_COMPLETE":
+            return Object.assign({}, state, {
+                players: action.data
+            })
+        
+     
+        case "QUEST_SPONSORED":
+            return Object.assign({}, state, {
+                players: action.data
+            }) 
+        
+        
+>>>>>>> 823bd1ccd1781872bbf674062996ad8431245609
     }
 
     return state;
