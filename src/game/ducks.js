@@ -9,6 +9,12 @@ const STORY_DECK_UPDATED = 'STORY_DECK_UPDATED';
 const END_TURN = 'END_TURN';
 const CHANGE_PHASE = 'CHANGE_PHASE';
 const CHANGE_PLAYER = 'CHANGE_PLAYER';
+const INVALID_EVENT = 'INVALID_EVENT';
+const JOIN_SUCCESS = 'JOIN_SUCCESS';
+const GAME_UPDATE = 'GAME_STATE_UPDATE';
+const PHASE_CHANGE = 'PHASE_CHANGE';
+const REVEAL_STORY = 'REVEAL_STORY';
+const ERROR = 'ERROR';
 
 /**TODO:
  * animations
@@ -80,7 +86,21 @@ export default function gameReducer(state = inititalState, action) {
         case CHANGE_PLAYER:
             return Object.assign({}, state, {
                 currentPlayer: action.currentPlayer
-            })    
+            })   
+        case INVALID_EVENT:
+            return Object.assign({}, state, {
+                
+            }) 
+        case JOIN_SUCCESS:
+            
+        case GAME_UPDATE:
+        
+        case PHASE_CHANGE:
+        
+        case REVEAL_STORY:
+        
+        case ERROR: 
+            
     }
 
     return state;
