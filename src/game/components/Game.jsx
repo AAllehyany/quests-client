@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import './Game.css';
 
 import PlayerPortrait from './PlayerPortrait';
+import MerlinButton from './MerlinButton';
+import MordredButton from './MordredButton';
 
 const mapStateToProps = (state) => ({
     players: state.game.players
@@ -28,6 +30,8 @@ class Game extends Component {
                         player={player}
                     />
                 ) }
+                {<MerlinButton/>}
+                {<MordredButton/>}
 
                 <div className="Field Player1Field"></div>
                 <div className="Field Player2Field"></div>
