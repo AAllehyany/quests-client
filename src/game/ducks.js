@@ -112,7 +112,13 @@ export default function gameReducer(state = inititalState, action) {
                 players: action.data
             })
         
-            
+     
+        case "QUEST_SPONSORED":
+            return Object.assign({}, state, {
+                players: action.data
+            }) 
+        
+        
     }
 
     return state;
