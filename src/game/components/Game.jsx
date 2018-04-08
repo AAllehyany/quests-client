@@ -8,7 +8,8 @@ import MerlinButton from './MerlinButton';
 import MordredButton from './MordredButton';
 
 const mapStateToProps = (state) => ({
-    players: state.game.players
+    players: state.game.players,
+    playerId: state.game.playerId
 });
 
 class Game extends Component {
@@ -20,6 +21,7 @@ class Game extends Component {
 
     render() {
         let players = this.props.players;
+        let current = this.props.players.filter(p => p.id===this.props.playerId);
         
         return (
             <div>
@@ -30,8 +32,8 @@ class Game extends Component {
                         player={player}
                     />
                 ) }
-                <MerlinButton/>
-                <MordredButton/>
+                {/* <MerlinButton player={current}/>
+                <MordredButton player={current}/> */}
 
                 <div className="Field Player1Field"></div>
                 <div className="Field Player2Field"></div>
