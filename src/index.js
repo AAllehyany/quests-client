@@ -7,6 +7,7 @@ import { configureStore } from './config';
 import { Provider } from 'react-redux';
 
 import registerServiceWorker from './registerServiceWorker';
+import gamesocket from './gamesocket';
 
 const store = configureStore();
 
@@ -18,7 +19,9 @@ const run = () => {
   }
   
   
-  store.subscribe(run);
-  run();
+store.subscribe(run);
+gamesocket.setStore(store);
+
+run();
   
-  registerServiceWorker();
+registerServiceWorker();
