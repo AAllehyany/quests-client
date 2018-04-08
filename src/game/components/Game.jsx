@@ -30,8 +30,8 @@ class Game extends Component {
                         player={player}
                     />
                 ) }
-                {<MerlinButton/>}
-                {<MordredButton/>}
+                <MerlinButton/>
+                <MordredButton/>
 
                 <div className="Field Player1Field"></div>
                 <div className="Field Player2Field"></div>
