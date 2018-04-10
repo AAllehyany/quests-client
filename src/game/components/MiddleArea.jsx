@@ -10,12 +10,10 @@ class MiddleArea extends Component {
   }
   render() {
     let props = this.props;
-    let cards = this.props.cards;
-   // let classes =  ['MiddleArea', `${props.playerNumber}`];
 
     return(
-      <div className={classes.join(' ')}>
-
+      <div className="MiddleArea">
+      
       </div>
     )
   }
