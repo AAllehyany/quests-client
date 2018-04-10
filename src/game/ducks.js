@@ -9,7 +9,7 @@ const ERROR = 'ERROR';
  * quests, tourneys and events!
  */
 const inititalState = {
-    players: [{ id: 0, shield: 10 }],
+    players: [],
     playerId: -1,
     revealedCard: {},
     over: false,
@@ -32,17 +32,18 @@ export default function gameReducer(state = inititalState, action) {
             })
 
         case GAME_UPDATE:
-            return Object.assgn({}, state, {
-                players: action.data.players,
-                revealedCard: action.data.revealedCard,
-                over: action.data.over,
-                started: action.data.started,
-                storyDeck: action.data.storyDeck,
-                adventureDeck: action.data.adventureDeck,
-                currentPhase: action.data.currentPhase,
-                currentTurn: action.data.currentTurn,
-                currentPlayer: action.data.currentPlayer,
-                currentQuest: action.data.currentQuest
+            const data = JSON.parse(action.data)   
+            return Object.assign({}, state, {
+                players: data.players,
+                revealedCard: data.revealedCard,
+                over: data.over,
+                started: data.started,
+                storyDeck: data.storyDeck,
+                adventureDeck: data.adventureDeck,
+                currentPhase: data.currentPhase,
+                currentTurn: data.currentTurn,
+                currentPlayer: data.currentPlayer,
+                currentQuest: data.currentQuest
             })
 
         case ERROR: 

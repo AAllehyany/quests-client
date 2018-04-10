@@ -13,7 +13,7 @@ class MordredButton extends Component{
         
         if(hasMordred){
             return(
-                <button className='MordredButton'>
+                <button onClick={() => props.onClickButton()} className='MordredButton'>
                     Use Mordred
                 </button>
             )

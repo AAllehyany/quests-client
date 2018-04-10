@@ -13,7 +13,7 @@ class MerlinButton extends Component{
         
         if(hasMerlin){
             return(
-                <button className='MerlinButton'>
+                <button onClick={() => props.onClickButton()} className='MerlinButton'>
                     <span className="MerlinUse">{"Use Merlin"}</span>
                 </button>
             )
