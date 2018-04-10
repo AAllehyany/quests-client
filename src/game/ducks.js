@@ -26,13 +26,13 @@ const inititalState = {
 export default function gameReducer(state = inititalState, action) {
     
     switch (action.type) {
-        case PHASE_CHANGE:
+        case PHASE:
             return Object.assign({}, state, {
                 phase: action.phase
             })
 
         case GAME_UPDATE:
-            return Object.assgn({}, stat, {
+            return Object.assgn({}, state, {
                 players: action.data.players,
                 revealedCard: action.data.revealedCard,
                 over: action.data.over,
