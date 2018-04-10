@@ -27,7 +27,7 @@
     border-radius: 50%;
 }
 
-.PlayerShield .ShieldAmount, .PlayerPower .BattlePower .MerlinUse .MordredUse .MerlinButton .MordredButton{
+.PlayerShield .ShieldAmount, .PlayerPower .BattlePower, .MerlinUse, .MordredUse, .MerlinButton, .MordredButton{
     line-height: 1.5;
     font-weight: bold;
     text-shadow: 0 0 1px black;
