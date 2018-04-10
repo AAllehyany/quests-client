@@ -21,6 +21,7 @@ const run = () => {
   
 store.subscribe(run);
 gamesocket.setStore(store);
+gamesocket.connect("ws://localhost:8080/xd");
 
 run();
   
