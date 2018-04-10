@@ -11,7 +11,7 @@ class PlayerField extends Component {
   render() {
     let props = this.props;
     let cards = this.props.cards;
-    let classes =  ['PlayerField', `${props.playerNumber}`];
+    let classes =  ['Field', `${props.playerNumber}Field`];
 
     return(
       <div className={classes.join(' ')}>

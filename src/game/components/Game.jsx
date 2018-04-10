@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import './Game.css';
 
-import PlayerPortrait from './PlayerPortrait';
+import Player from './Player';
 import MerlinButton from './MerlinButton';
 import MordredButton from './MordredButton';
 
@@ -26,7 +26,7 @@ class Game extends Component {
         return (
             <div>
                 {players.map((player, index) => 
-                    <PlayerPortrait 
+                    <Player 
                         playerNumber={`Player${index+1}`}
                         key={player.id}
                         player={player}
@@ -35,10 +35,7 @@ class Game extends Component {
                 {/* <MerlinButton player={current}/>
                 <MordredButton player={current}/> */}
 
-                <div className="Field Player1Field"></div>
-                <div className="Field Player2Field"></div>
-                <div className="Field Player3Field"></div>
-                <div className="Field Player4Field"></div>
+                
             </div>
             
         )
