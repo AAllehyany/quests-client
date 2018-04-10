@@ -40,7 +40,7 @@ export default function gameReducer(state = inititalState, action) {
                 started: data.started,
                 storyDeck: data.storyDeck,
                 adventureDeck: data.adventureDeck,
-                currentPhase: data.currentPhase,
+                currentPhase: data.phase,
                 currentTurn: data.currentTurn,
                 currentPlayer: data.currentPlayer,
                 currentQuest: data.currentQuest
