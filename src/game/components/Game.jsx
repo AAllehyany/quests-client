@@ -117,7 +117,7 @@ class Game extends Component {
                     />
                 ) }
                 <MerlinButton onClickButton={this.startGame}/>
-                <MordredButton onClickButton={this.beginGame}/>
+                <MordredButton onClickButton={this.beginGame.bind(this)}/>
                 <MiddleArea revealedCard={this.props.game.revealedCard}/>
                 
             </div>
