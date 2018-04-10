@@ -19,7 +19,19 @@ class Game extends Component {
 
     constructor(props) {
         super(props);
+        // Properties that are mapped from the server side
+        // for now it is only the game, playerId and players
         this.props = props;
+
+        // state is for when you want to store cards temporarily before
+        // you push them to the server
+        // like in case of setting up cards for the quest
+        // you put the cards in here first then you 
+        // send the things in state depending on what you need
+        // selected is for the cards the player selects from their
+        // hand when they click on it
+        // usedWeapons is to keep track of weapons played so
+        // that the player does not play more than one weapon.
         this.state = {selected: [], usedWeapons: []};
     }
 
