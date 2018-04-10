@@ -6,6 +6,7 @@ import './Game.css';
 import Player from './Player';
 import MerlinButton from './MerlinButton';
 import MordredButton from './MordredButton';
+import MiddleArea from './MiddleArea';
 
 const mapStateToProps = (state) => ({
     players: state.game.players,
@@ -34,7 +35,7 @@ class Game extends Component {
                 ) }
                 {/* <MerlinButton player={current}/>
                 <MordredButton player={current}/> */}
-
+                <MiddleArea/>
                 
             </div>
             

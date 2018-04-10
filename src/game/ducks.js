@@ -26,7 +26,7 @@ const inititalState = {
 export default function gameReducer(state = inititalState, action) {
     
     switch (action.type) {
-        case "PHASE_CHANGE":
+        case PHASE:
             return Object.assign({}, state, {
                 phase: action.phase
             })
