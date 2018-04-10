@@ -11,7 +11,8 @@ import gamesocket from '../../gamesocket'
 
 const mapStateToProps = (state) => ({
     players: state.game.players,
-    playerId: state.game.playerId
+    playerId: state.game.playerId,
+    game: state.game
 });
 
 class Game extends Component {
@@ -50,7 +51,7 @@ class Game extends Component {
                 ) }
                 <MerlinButton onClickButton={this.startGame}/>
                 <MordredButton onClickButton={this.beginGame}/>
-                <MiddleArea/>
+                <MiddleArea revealedCard={this.props.game.revealedCard}/>
                 
             </div>
             
