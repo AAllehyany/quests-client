@@ -33,8 +33,8 @@ class Game extends Component {
                         player={player}
                     />
                 ) }
-                {/* <MerlinButton player={current}/>
-                <MordredButton player={current}/> */}
+                <MerlinButton player={current}/>
+                <MordredButton player={current}/> 
                 <MiddleArea/>
                 
             </div>

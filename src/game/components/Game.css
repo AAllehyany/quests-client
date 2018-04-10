@@ -181,19 +181,19 @@
 
 .MerlinButton{
     position: absolute;
-    right: 23%;
+    right: 11%;
     width: 7%;
     height: 7%;
-    bottom: 10%;
+    bottom: 14%;
     background: green;
 }
 
 .MordredButton{
     position: absolute;
-    right: 23%;
+    right: 11%;
     width: 7%;
     height: 7%;
-    bottom: 2%;
+    bottom: 5%;
     background: red;
 }
 
