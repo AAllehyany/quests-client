@@ -9,7 +9,7 @@ const ERROR = 'ERROR';
  * quests, tourneys and events!
  */
 const inititalState = {
-    players: [{ id: 0, shield: 10 }],
+    players: [{ id: 0, shield: 10 }, { id: 0, shield: 10 }, { id: 0, shield: 10 }, { id: 0, shield: 10 }],
     playerId: -1,
     revealedCard: {},
     over: false,
@@ -20,7 +20,6 @@ const inititalState = {
     currentTurn: -1,
     currentPlayer: 0,
     currentQuest: {}
-
 };
 
 export default function gameReducer(state = inititalState, action) {
