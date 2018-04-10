@@ -10,12 +10,16 @@ class PlayerHand extends Component {
   }
   render() {
     let props = this.props;
-    let cards = this.props.cards;
-    let classes =  ['PlayerHand', `${props.playerNumber}`];
+    let classes =  ['Hand', `${props.playerNumber}Hand`];
 
     return(
       <div className={classes.join(' ')}>
-
+        {props.cards.map(card => (
+          <div key={card.id} 
+            onClick={() => props.onCardClick(card)} 
+            className="card" 
+            style={{ backgroundImage: `url(${card.image})` }}></div>
+        ))}
       </div>
     )
   }

@@ -12,7 +12,7 @@ class WebSocketConnection {
       if (this.store !== undefined) {
           this.socket = new WebSocket(link);
           this.socket.onopen = (e) => {
-              //this.send({ type: 'FETCH_HOSTS' });
+              this.send({ type: 'FETCH_HOSTS' });
           }
           this.socket.onmessage = (e) => this.store.dispatch(JSON.parse(e.data));
           this.socket.onclose = (e) => console.log(e);

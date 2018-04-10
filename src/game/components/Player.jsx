@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PlayerPortrait from './PlayerPortrait';
 import PlayerField from './PlayerField';
+import PlayerHand from './PlayerHand';
 
 class Player extends Component {
 
@@ -9,6 +10,7 @@ class Player extends Component {
 
 
   }
+  
   render() {
     let props = this.props;
     let cards = this.props.cards;
@@ -17,6 +19,7 @@ class Player extends Component {
       <div>
         <PlayerPortrait playerNumber={props.playerNumber} player={props.player} />
         <PlayerField playerNumber={props.playerNumber} cards={[]} />
+        <PlayerHand onCardClick={this.logCard} playerNumber={props.playerNumber} cards={[]} />
       </div>
     )
   }

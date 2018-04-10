@@ -123,6 +123,11 @@
     background: yellow;
 }
 
+.Hand {
+    position: absolute;
+    background: red;
+}
+
 .Player1Field, .Player2Field {
     width: 53.0520833333%;
     height: 13.7296296296%;
@@ -144,6 +149,28 @@
 .Player3Field { left: 10%; }
 
 .Player4Field { right: 10%; }
+
+.Player1Hand, .Player2Hand {
+    width: 53.0520833333%;
+    height: 13.7296296296%;
+    left: 50%;
+    margin-left: -26.5260416666%;
+}
+
+.Player1Hand { bottom: 4%; }
+
+.Player2Hand { top: 4%; }
+
+.Player3Hand, .Player4Hand {
+    width: 9.43148148148%;
+    height: 68.5185185185%;
+    top: 50%;
+    margin-top: -20%;
+}
+
+.Player3Hand { left: 1%; }
+
+.Player4Hand { right: 1%; }
 
 .MerlinButton{
     position: absolute;
