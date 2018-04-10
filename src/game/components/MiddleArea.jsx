@@ -13,7 +13,7 @@ class MiddleArea extends Component {
 
     return(
       <div className="MiddleArea">
-      
+        
       </div>
     )
   }

@@ -34,69 +34,120 @@
     font-size: 12pt;
 }
 
-
+/*Player 1 formatting*/
 .Player1 {
-    left: 50%;
+    left: 23%;
     margin-left: -2.5%;
-    bottom: 1%;
+    bottom: 4%;
 }
-
 .Player1 .PlayerShield {
     bottom: 0;
     right: 0;
 }
-
 .Player1 .PlayerPower {
     bottom: 0;
     left: 0;
 }
-
-.Player2 {
-    left: 50%;
-    margin-left: -2.5%;
-    top: 1%;
+.Player1Field { 
+    width: 53.0520833333%;
+    height: 13.7296296296%;
+    left: 53%;
+    margin-left: -26.5260416666%;
+    bottom: 16%;
+}
+.Player1Hand{
+    width: 53.0520833333%;
+    height: 13.7296296296%;
+    left: 53%;
+    margin-left: -26.5260416666%;
+    bottom: 2%;
 }
 
+/*Player 2 formatting*/
+.Player2 {
+    right: 20.5%;
+    margin-left: -2.5%;
+    top: 3.5%;
+}
 .Player2 .PlayerShield {
     bottom: 0;
     right: 0;
 }
-
 .Player2 .PlayerPower {
     bottom: 0;
     left: 0;
 }
-
-.Player3 {
-    left: 1%;
-    margin-top: -4.5%;
-    top: 50%;
+.Player2Hand {
+    width: 53.0520833333%;
+    height: 13.7296296296%;
+    left: 47%;
+    margin-left: -26.5260416666%;
+    top: 2%;
+}
+.Player2Field {
+    width: 53.0520833333%;
+    height: 13.7296296296%;
+    left: 47%;
+    margin-left: -26.5260416666%;
+    top: 16%;
 }
 
+/*Player 3 formatting*/
+.Player3 {
+    left: 3%;
+    margin-top: -4.5%;
+    top: 21%;
+}
 .Player3 .PlayerPower {
     bottom: 0;
     left: 0;
 }
-
 .Player3 .PlayerShield {
     bottom: 0;
     right: 0;
 }
-
-.Player4 {
-    right: 1%;
-    margin-top: -4.5%;
-    top: 50%;
+.Player3Hand {
+    width: 9.43148148148%;
+    height: 68.5185185185%;
+    top: 60%;
+    margin-top: -20%;
+    left: 1%
+}
+.Player3Field {
+    width: 9.43148148148%;
+    height: 68.5185185185%;
+    top: 60%;
+    margin-top: -20%;
+    left: 10%;
 }
 
+/*Player 4 formatting*/
+.Player4 {
+    right: 3%;
+    margin-top: -4.5%;
+    bottom: 13%;
+}
 .Player4 .PlayerShield {
     bottom: 0;
     left: 0;
 }
-
 .Player4 .PlayerPower {
     bottom: 0;
     right: 0;
+}
+.Player4Hand {
+    width: 9.43148148148%;
+    height: 68.5185185185%;
+    top: 43%;
+    margin-top: -20%;
+    right: 1%;
+}
+.Player4Field {
+    width: 9.43148148148%;
+    height: 68.5185185185%;
+    top: 43%;
+    margin-top: -20%;
+    right: 10%;
 }
 
 .Card {
@@ -128,73 +179,29 @@
     background: red;
 }
 
-.Player1Field, .Player2Field {
-    width: 53.0520833333%;
-    height: 13.7296296296%;
-    left: 50%;
-    margin-left: -26.5260416666%;
-}
-
-.Player1Field { bottom: 18%; }
-
-.Player2Field { top: 18%; }
-
-.Player3Field, .Player4Field {
-    width: 9.43148148148%;
-    height: 68.5185185185%;
-    top: 50%;
-    margin-top: -20%;
-}
-
-.Player3Field { left: 10%; }
-
-.Player4Field { right: 10%; }
-
-.Player1Hand, .Player2Hand {
-    width: 53.0520833333%;
-    height: 13.7296296296%;
-    left: 50%;
-    margin-left: -26.5260416666%;
-}
-
-.Player1Hand { bottom: 4%; }
-
-.Player2Hand { top: 4%; }
-
-.Player3Hand, .Player4Hand {
-    width: 9.43148148148%;
-    height: 68.5185185185%;
-    top: 50%;
-    margin-top: -20%;
-}
-
-.Player3Hand { left: 1%; }
-
-.Player4Hand { right: 1%; }
-
 .MerlinButton{
     position: absolute;
-    right: 23%;
+    right: 11%;
     width: 7%;
     height: 7%;
-    bottom: 10%;
+    bottom: 14%;
     background: green;
 }
 
 .MordredButton{
     position: absolute;
-    right: 23%;
+    right: 11%;
     width: 7%;
     height: 7%;
-    bottom: 2%;
+    bottom: 5%;
     background: red;
 }
 
 .MiddleArea{
     position: absolute;
-    width: 30%;
-    height: 20%;
-    top: 40%;
-    right: 35%;
+    width: 60%;
+    height: 40%;
+    top: 30%;
+    left: 20%;
     background: blue;
 }

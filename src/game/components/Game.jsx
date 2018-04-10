@@ -41,8 +41,8 @@ class Game extends Component {
                         player={player}
                     />
                 ) }
-                <MerlinButton onClickButton={this.startGame}/>
-                <MordredButton onClickButton={this.beginGame}/>
+                <MerlinButton player={current}/>
+                <MordredButton player={current}/> 
                 <MiddleArea/>
                 
             </div>
