@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-
+import PlayerPortrait from './PlayerPortrait';
+import PlayerField from './PlayerField';
 
 class Player extends Component {
 
@@ -11,11 +12,11 @@ class Player extends Component {
   render() {
     let props = this.props;
     let cards = this.props.cards;
-    let classes =  [`${props.playerNumber}`];
 
     return(
-      <div className={classes.join(' ')}>
-
+      <div>
+        <PlayerPortrait playerNumber={props.playerNumber} player={props.player} />
+        <PlayerField playerNumber={props.playerNumber} cards={[]} />
       </div>
     )
   }

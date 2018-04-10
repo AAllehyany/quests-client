@@ -19,7 +19,7 @@ class PlayerPortrait extends Component {
           <span className='ShieldAmount'>{player.shields}</span>
         </div>
         <div className='PlayerPower'>
-          <span className='BattlePower'>{player.bp}</span>
+          <span className='BattlePower'>{player.battlePoints}</span>
         </div>
       </div>
     )
