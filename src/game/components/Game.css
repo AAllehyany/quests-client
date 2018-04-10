@@ -27,7 +27,7 @@
     border-radius: 50%;
 }
 
-.PlayerShield .ShieldAmount, .PlayerPower .BattlePower, .MerlinUse, .MordredUse, .MerlinButton, .MordredButton{
+.PlayerShield .ShieldAmount, .PlayerPower .BattlePower, .MerlinUse, .MordredUse, .MerlinButton, .MordredButton, .ReadyButton{
     line-height: 1.5;
     font-weight: bold;
     text-shadow: 0 0 1px black;
@@ -195,6 +195,15 @@
     height: 7%;
     bottom: 5%;
     background: red;
+}
+
+.ReadyButton{
+    position: absolute;
+    left: 20.5%;
+    width: 5%;
+    height: 7%;
+    bottom: 16%;
+    background: blue;
 }
 
 .MiddleArea{
