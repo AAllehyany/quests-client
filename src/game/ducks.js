@@ -90,7 +90,7 @@ export default function gameReducer(state = inititalState, action) {
             })
             
         case "STAGES_SETUP_SUCCESSFUL_SPONSOR":
-            return Object.assign({}, stat, {
+            return Object.assign({}, state, {
                 currentQuest: action.data
             }) 
         
@@ -115,7 +115,9 @@ export default function gameReducer(state = inititalState, action) {
      
         case "QUEST_SPONSORED":
             return Object.assign({}, state, {
-                players: action.data
+                players: action.data.players,
+                currentQuest: action.data.currentQuest
+
             }) 
         
         
