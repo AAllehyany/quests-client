@@ -95,6 +95,13 @@ class Game extends Component {
                 }
                 break;
 
+            case "PlayStage":
+                if(card.type!=="weapon" && card.type!=="ally" && card.type!=="amour") return;
+                if(this.state.selected.map(c => c.name).includes(card.name)) return;
+                if(card.type==="amour" && player.field.map(c=>c.type).includes(card.type)) return;
+                this.state.selected.push(card);
+                break;
+
             default:
                 console.log(phase);
                 console.log(card);
