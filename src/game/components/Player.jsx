@@ -10,16 +10,17 @@ class Player extends Component {
 
 
   }
+
   
   render() {
     let props = this.props;
     let cards = this.props.cards;
-
+    let hand = this.props.player.hand || [];
     return(
       <div>
         <PlayerPortrait playerNumber={props.playerNumber} player={props.player} />
         <PlayerField playerNumber={props.playerNumber} cards={[]} />
-        <PlayerHand onCardClick={this.logCard} playerNumber={props.playerNumber} cards={[]} />
+        <PlayerHand onCardClick={props.handleCardClick} playerNumber={props.playerNumber} cards={hand} />
       </div>
     )
   }

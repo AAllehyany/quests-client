@@ -28,6 +28,12 @@ class Game extends Component {
     beginGame() {
         gamesocket.send({event: "START_GAME"})
     }
+
+    handleClick(card) {
+        console.log("LUL")
+        console.log(card)
+    }
+    
     render() {
         let players = this.props.players;
         //let current = this.props.players.filter(p => p.id===this.props.playerId);
@@ -39,6 +45,7 @@ class Game extends Component {
                         playerNumber={`Player${index+1}`}
                         key={player.id}
                         player={player}
+                        handleCardClick={this.handleClick}
                     />
                 ) }
                 <MerlinButton onClickButton={this.startGame}/>
