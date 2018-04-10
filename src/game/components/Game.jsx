@@ -7,6 +7,7 @@ import Player from './Player';
 import MerlinButton from './MerlinButton';
 import MordredButton from './MordredButton';
 import MiddleArea from './MiddleArea';
+import ReadyButton from './ReadyButton';
 import gamesocket from '../../gamesocket'
 
 const mapStateToProps = (state) => ({
@@ -45,6 +46,7 @@ class Game extends Component {
 
     handleClick(card) {
         const phase = this.props.game.currentPhase;
+        //let current = this.props.players.filter(p => p.id===this.props.playerId);
 
         switch(phase) {
             case "SetupQuest":
@@ -79,11 +81,23 @@ class Game extends Component {
                 }
                 break;
 
+            case "PlayStage":
+                if(card.type!=="weapon" && card.type!=="ally" && card.type!=="amour") return;
+                if(this.state.selected.map(c => c.name).includes(card.name)) return;
+                if(card.type==="amour" && 
+                    this.props.players.filter(p => p.id===this.props.playerID).field.map(c=>c.type).includes(card.type)) return;
+                this.state.selected.push(card);
+                break;
+
             default:
                 console.log(phase);
                 console.log(card);
 
         }
+    }
+
+    ready(){
+        
     }
 
     render() {
@@ -103,6 +117,7 @@ class Game extends Component {
                 <MerlinButton onClickButton={this.startGame}/>
                 <MordredButton onClickButton={this.beginGame.bind(this)}/>
                 <MiddleArea revealedCard={this.props.game.revealedCard}/>
+                <ReadyButton onClickButton={this.ready}/>
                 
             </div>
             
