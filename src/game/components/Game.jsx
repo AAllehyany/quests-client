@@ -40,23 +40,7 @@ class Game extends Component {
     }
 
     beginGame() {
-        console.log(this.props.game.currentPhase);
-        const phase = this.props.game.currentPhase;
-
-        switch(phase) {
-            case "TurnStart":
-                gamesocket.send({event: "REVEAL_STORY"})
-                break;
-            
-            case "SponsorQuest":
-                gamesocket.send({event: "SPONSOR_QUEST", data: this.state.selected.map(c => c.id) });
-                break;
-            
-            case "StartTurn":
                 gamesocket.send({event: "START_GAME"});
-            default:
-                console.log(phase);
-        }
     }
 
     handleClick(card) {

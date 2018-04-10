@@ -15,10 +15,10 @@ class PlayerHand extends Component {
     return(
       <div className={classes.join(' ')}>
         {props.cards.map(card => (
-          <div key={card.id} 
+          <img key={card.id} 
             onClick={() => props.onCardClick(card)} 
             className="card" 
-            style={{ backgroundImage: `url(${card.image})` }}></div>
+            src={"/image/Cards/Adventure/" + card.name + ".jpg"}/>
         ))}
       </div>
     )
