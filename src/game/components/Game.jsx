@@ -51,8 +51,11 @@ class Game extends Component {
             case "SponsorQuest":
                 gamesocket.send({event: "SPONSOR_QUEST", data: this.state.selected.map(c => c.id) });
                 break;
+            
+            case "TurnStart":
+                gamesocket.send({event: "START_GAME"});
             default:
-                gamesocket.send({event: "START_GAME"})
+                console.log(phase);
         }
     }
 
