@@ -34,7 +34,15 @@ class ReadyButton extends Component{
                     <span className="Ready">{"Sponsor"}</span>
                 </button>
             )
-        }else return null;
+        }
+        else if(phase==="HandleEvent"){
+            return(
+                <button onClick={() => props.onClickButton()} className='ReadyButton'>
+                    <span className="Ready">handle event</span>
+                </button>
+            )
+        }
+        else return null;
     }
 
 }

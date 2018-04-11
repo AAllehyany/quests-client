@@ -20,7 +20,7 @@ class Player extends Component {
       <div>
         <PlayerPortrait playerNumber={props.playerNumber} player={props.player} />
         <PlayerField playerNumber={props.playerNumber} cards={[]} />
-        <PlayerHand onCardClick={props.handleCardClick} playerNumber={props.playerNumber} cards={hand} />
+        <PlayerHand faceDown={props.faceDown} onCardClick={props.handleCardClick} playerNumber={props.playerNumber} cards={hand} />
       </div>
     )
   }
