@@ -46,7 +46,7 @@ class Game extends Component {
 
     handleClick(card) {
         const phase = this.props.game.currentPhase;
-        //let current = this.props.players.filter(p => p.id===this.props.playerId);
+        let current = this.props.players.filter(p => p.id===this.props.playerId);
 
         switch(phase) {
             case "SetupQuest":
@@ -82,11 +82,35 @@ class Game extends Component {
                 break;
 
             case "PlayStage":
+                    if(card.type!=="weapon" && card.type!=="ally" && card.type!=="amour") return;
+                    if(this.state.selected.map(c => c.name).includes(card.name)) return;
+                    if(card.type==="amour" && 
+                        current.field.map(c=>c.type).includes(card.type)) return;
+                    this.state.selected.push(card);
+                    break;
+
+            case "PlayTourney":
                 if(card.type!=="weapon" && card.type!=="ally" && card.type!=="amour") return;
                 if(this.state.selected.map(c => c.name).includes(card.name)) return;
                 if(card.type==="amour" && 
-                    this.props.players.filter(p => p.id===this.props.playerID).field.map(c=>c.type).includes(card.type)) return;
+                    current.field.map(c=>c.type).includes(card.type)) return;
                 this.state.selected.push(card);
+                break;
+
+            case "Arms":
+                if(current.hand.map(c=>c.type).includes("weapon")){
+                    while(this.state.selected.length<1){
+                        if(card.type==="weapon") this.state.selected.push(card);
+                    }
+                }else if(current.hand.filter(c=>c.type==="foe").length>=2){
+                    while(this.state.selected.length<2){
+                        if(card.type==="foe") this.state.selected.push(card);
+                    }
+                }else if(current.hand.filter(c=>c.type==="foe").length===1){
+                    while(this.state.selected.length<1){
+                        if(card.type==="foe") this.state.selected.push(card);
+                    }
+                }
                 break;
 
             default:
