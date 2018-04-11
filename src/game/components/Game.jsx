@@ -36,11 +36,12 @@ class Game extends Component {
         this.state = {selected: [], usedWeapons: []};
     }
 
-    startGame() {
-        gamesocket.send({event: "JOIN_GAME"})
-    }
+    joinGame() {
+        console.log("JOIN_GAME");
+        gamesocket.send({event: "JOIN_GAME"});
+    }   
 
-    beginGame() {
+    startGame() {
         gamesocket.send({event: "START_GAME"});
     }
 
@@ -113,11 +114,6 @@ class Game extends Component {
                 }
                 break;
 
-            case "Discard":
-                while(current.hand.length-12>this.state.selected.length){
-                    this.state.selected.push(card)
-                }
-
             default:
                 console.log(phase);
                 console.log(card);
@@ -126,8 +122,7 @@ class Game extends Component {
     }
 
     ready(){
-        const phase = this.props.game.currentPhase;
-        let current = this.props.players.filter(p => p.id===this.props.playerId);
+        
     }
 
     render() {
@@ -144,8 +139,8 @@ class Game extends Component {
                         handleCardClick={this.handleClick.bind(this)}
                     />
                 ) }
-                <MerlinButton onClickButton={this.startGame}/>
-                <MordredButton onClickButton={this.beginGame.bind(this)}/>
+                <MerlinButton onClickButton={this.joinGame}/>
+                <MordredButton onClickButton={this.startGame.bind(this)}/>
                 <MiddleArea revealedCard={this.props.game.revealedCard}/>
                 <ReadyButton onClickButton={this.ready}/>
                 

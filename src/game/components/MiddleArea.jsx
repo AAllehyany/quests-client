@@ -13,10 +13,7 @@ class MiddleArea extends Component {
 
     return(
       <div className="MiddleArea">
-        <div className="midCard" 
-          style={{ backgroundImage: `url(${props.revealedCard})` }}></div>
-          <div className="midCard" 
-          style={{ backgroundImage: `url(${props.revealedCard})` }}></div>
+        
       </div>
     )
   }
