@@ -37,15 +37,6 @@ class Game extends Component {
         this.state = {selected: [], usedWeapons: []};
     }
 
-    joinGame() {
-        console.log("JOIN_GAME");
-        gamesocket.send({event: "JOIN_GAME"});
-    }   
-
-    startGame() {
-        gamesocket.send({event: "START_GAME"});
-    }
-
     handleClick(card) {
         const phase = this.props.game.currentPhase;
         let current = this.props.players.filter(p => p.id===this.props.playerId);

@@ -258,3 +258,12 @@
     margin-top: -55%;
     transform-origin: 10% 100%;
 }
+
+
+.CurrentPhase {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    color: red;
+    font-weight: bold;
+}

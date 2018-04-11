@@ -2,6 +2,7 @@ const INVALID_EVENT = 'INVALID_EVENT';
 const GAME_UPDATE = 'GAME_STATE_UPDATE';
 const PHASE = 'PHASE_CHANGE';
 const ERROR = 'ERROR';
+const ADD_ID = 'RECEIVE_ID'
 
 /**TODO:
  * animations
@@ -47,13 +48,19 @@ export default function gameReducer(state = inititalState, action) {
             })
 
         case ERROR: 
-        return Object.assign({}, state, {
-            //popup declaring an error
+            return Object.assign({}, state, {
+                //popup declaring an error
         }) 
 
         case INVALID_EVENT:
-        return Object.assign({}, state, {
+            return Object.assign({}, state, {
                 //popup declaring an invalid event
+            }) 
+        
+        case ADD_ID:
+            console.log(JSON.parse(action.data))
+            return Object.assign({}, state, {
+                playerId: JSON.parse(action.data)
             }) 
     }
 
