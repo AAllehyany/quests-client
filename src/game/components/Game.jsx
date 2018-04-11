@@ -178,6 +178,10 @@ class Game extends Component {
 
     }
 
+    cheat(){
+
+    }
+
     render() {
         let players = this.props.players;
         let current = this.props.players.filter(p => p.id===this.props.playerId);
@@ -197,7 +201,7 @@ class Game extends Component {
                 <MiddleArea revealedCard={this.props.game.revealedCard}/>
                 <ReadyButton onClickButton={this.ready.bind(this)} phase={this.props.game.currentPhase}/>
                 <DeclineButton onClickButton={this.decline.bind(this)} phase={this.props.game.currentPhase}/>
-                <CheatButton onClickButton={this.decline.bind(this)}/>
+                <CheatButton onClickButton={this.cheat.bind(this)}/>
             </div>
             
         )
