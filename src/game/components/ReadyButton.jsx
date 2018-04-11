@@ -8,7 +8,7 @@ class ReadyButton extends Component{
 
     render(){
         let props = this.props;
-        const phase = "PlayStage";
+        const phase = props.phase;
 
         if(phase==="SetupQuest" || phase==="PlayStage" || phase==="PlayTourney"){
             return(
