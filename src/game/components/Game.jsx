@@ -128,6 +128,34 @@ class Game extends Component {
     ready(){
         const phase = this.props.game.currentPhase;
         let current = this.props.players.filter(p => p.id===this.props.playerId);
+        switch(phase){
+            case "JoinQuest": 
+                gamesocket.send({event: "JOIN_QUEST"});
+                break;
+            case "JoinTournament":
+                gamesocket.send({event: "JOIN_TOURNEY"});
+                break;
+            case "SetupQuest":
+                gamesocket.send({event: "SPONSOR_QUEST"})
+                break;
+            case "PlayStage":
+                gamesocket.send({event: "PLAY_STAGE"});
+                break;
+            case "PlayTourney":
+                gamesocket.send({event: "RUN_TOURNEY"});
+                break;
+            case "Arms":
+                gamesocket.send({event: "DISCARD"});
+                break;
+            case "Discdard":
+                gamesocket.send({event: "DISCARD"});
+                break;
+            case "SponsorQuest":
+                gamesocket.send({event: "SPONSOR_QUEST"});
+                break;
+            default:
+                console.log(phase);
+        }
     }
 
     render() {
