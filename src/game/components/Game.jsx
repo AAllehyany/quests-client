@@ -147,7 +147,7 @@ class Game extends Component {
             case "Arms":
                 gamesocket.send({event: "DISCARD"});
                 break;
-            case "Discdard":
+            case "Discard":
                 gamesocket.send({event: "DISCARD"});
                 break;
             case "SponsorQuest":

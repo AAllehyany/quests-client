@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
 
-class MerlinButton extends Component{
+class ReadyButton extends Component{
 
     constructor(props){
         super(props);
+        this.props = props;
     }
 
     render(){
         let props = this.props;
-        const phase = this.props.game.currentPhase;
-        
+        const phase = "SponsorQuest";
+
         if(phase==="SetupQuest" || phase==="PlayStage" || phase==="PlayTourney"){
             return(
                 <button onClick={() => props.onClickButton()} className='ReadyButton'>
@@ -29,12 +30,14 @@ class MerlinButton extends Component{
                 </button>
             )
         }else if(phase==="SponsorQuest"){
-            <button onClick={() => props.onClickButton()} className='ReadyButton'>
-                <span className="Ready">{"Sponsor"}</span>
-            </button>
-        }
+            return(
+                <button onClick={() => props.onClickButton()} className='ReadyButton'>
+                    <span className="Ready">{"Sponsor"}</span>
+                </button>
+            )
+        }else return null;
     }
 
 }
 
-export default MerlinButton;
+export default ReadyButton;
