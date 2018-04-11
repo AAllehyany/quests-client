@@ -113,6 +113,11 @@ class Game extends Component {
                 }
                 break;
 
+            case "Discard":
+                while(current.hand.length-12>this.state.selected.length){
+                    this.state.selected.push(card)
+                }
+
             default:
                 console.log(phase);
                 console.log(card);
@@ -121,7 +126,8 @@ class Game extends Component {
     }
 
     ready(){
-        
+        const phase = this.props.game.currentPhase;
+        let current = this.props.players.filter(p => p.id===this.props.playerId);
     }
 
     render() {
