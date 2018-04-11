@@ -13,7 +13,10 @@ class MiddleArea extends Component {
 
     return(
       <div className="MiddleArea">
-        
+        {props.revealedCard ? 
+          <img className="card" 
+          src={"/image/Cards/Story/" + props.revealedCard.name + ".jpg"}/>
+          : null}
       </div>
     )
   }
