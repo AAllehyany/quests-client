@@ -10,7 +10,7 @@ class CheatButton extends Component{
         let props = this.props;
         const phase = props.phase;
 
-        if(phase==="PlayQuest"){
+        if(phase==="PlayQuest" || phase==="PlayStage"){
             return(
                 <button onClick={() => props.onClickButton()} className='CheatButton'>
                     <span className="Cheat">{"CHEAT"}</span>
