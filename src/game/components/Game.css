@@ -111,7 +111,7 @@
     height: 68.5185185185%;
     top: 60%;
     margin-top: -20%;
-    left: 1%
+    left: 1%;
 }
 .Player3Field {
     width: 9.43148148148%;
@@ -235,7 +235,17 @@
 }
 
 .Player3Hand .card {
-    width: 100%;
-    height: 7%;
+    width: 50%;
+    height: 20%;
     transform: rotate(90deg);
+    margin-top: -55%;
+    transform-origin: 10% 100%;
+}
+
+.Player4Hand .card {
+    width: 50%;
+    height: 20%;
+    transform: rotate(90deg);
+    margin-top: -55%;
+    transform-origin: 10% 100%;
 }
