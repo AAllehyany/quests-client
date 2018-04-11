@@ -212,6 +212,8 @@ class Game extends Component {
                 <ReadyButton onClickButton={this.ready.bind(this)} phase={this.props.game.currentPhase}/>
                 <DeclineButton onClickButton={this.decline.bind(this)} phase={this.props.game.currentPhase}/>
                 <CheatButton onClickButton={this.decline.bind(this)}/>
+                <div className="CurrentPhase">{this.props.game.currentPhase}</div>
+
             </div>
             
         )
