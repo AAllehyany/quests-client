@@ -8,6 +8,7 @@ import MerlinButton from './MerlinButton';
 import MordredButton from './MordredButton';
 import MiddleArea from './MiddleArea';
 import ReadyButton from './ReadyButton';
+import DeclineButton from './DeclineButton';
 import gamesocket from '../../gamesocket'
 
 const mapStateToProps = (state) => ({
@@ -34,15 +35,6 @@ class Game extends Component {
         // usedWeapons is to keep track of weapons played so
         // that the player does not play more than one weapon.
         this.state = {selected: [], usedWeapons: []};
-    }
-
-    joinGame() {
-        console.log("JOIN_GAME");
-        gamesocket.send({event: "JOIN_GAME"});
-    }   
-
-    startGame() {
-        gamesocket.send({event: "START_GAME"});
     }
 
     handleClick(card) {
@@ -100,18 +92,20 @@ class Game extends Component {
 
             case "Arms":
                 if(current.hand.map(c=>c.type).includes("weapon")){
-                    while(this.state.selected.length<1){
-                        if(card.type==="weapon") this.state.selected.push(card);
-                    }
+                    if(this.state.selected.length<1 && card.type==="weapon") this.state.selected.push(card);
                 }else if(current.hand.filter(c=>c.type==="foe").length>=2){
-                    while(this.state.selected.length<2){
-                        if(card.type==="foe") this.state.selected.push(card);
-                    }
+                    if(this.state.selected.length<2 && card.type==="foe") this.state.selected.push(card);
                 }else if(current.hand.filter(c=>c.type==="foe").length===1){
-                    while(this.state.selected.length<1){
-                        if(card.type==="foe") this.state.selected.push(card);
-                    }
+                    if(this.state.selected.length<1 && card.type==="foe") this.state.selected.push(card);
                 }
+                break;
+
+            case "DiscardTest":
+                if(this.state.selected.length<current.bids) this.state.selected.push(card);
+                break;
+
+            case "Discard":
+                if(current.hand.length-12>this.state.selected.length) this.state.selected.push(card);
                 break;
 
             default:
@@ -125,14 +119,17 @@ class Game extends Component {
         const phase = this.props.game.currentPhase;
         let current = this.props.players.filter(p => p.id===this.props.playerId);
         switch(phase){
+            case "JoinGame":
+                gamesocket.send({event: "JOIN_GAME"});
+                break;
             case "JoinQuest": 
-                gamesocket.send({event: "JOIN_QUEST"});
+                gamesocket.send({event: "JOIN_QUEST", value: true});
                 break;
             case "JoinTournament":
-                gamesocket.send({event: "JOIN_TOURNEY"});
+                gamesocket.send({event: "JOIN_TOURNEY", value: true});
                 break;
             case "SetupQuest":
-                gamesocket.send({event: "SPONSOR_QUEST"})
+                gamesocket.send({event: "SPONSOR_QUEST", value: true});
                 break;
             case "PlayStage":
                 gamesocket.send({event: "PLAY_STAGE"});
@@ -147,7 +144,25 @@ class Game extends Component {
                 gamesocket.send({event: "DISCARD"});
                 break;
             case "SponsorQuest":
-                gamesocket.send({event: "SPONSOR_QUEST"});
+                gamesocket.send({event: "SPONSOR_QUEST", value: true});
+                break;
+            default:
+                console.log(phase);
+        }
+    }
+
+    decline(){
+        const phase = this.props.game.currentPhase;
+        let current = this.props.players.filter(p => p.id===this.props.playerId);
+        switch(phase){
+            case "JoinQuest":
+                gamesocket.send({event: "JOIN_QUEST", value: false});
+                break;
+            case "JoinTourney":
+                gamesocket.send({event: "JOIN_TOURNEY", value: false});
+                break;
+            case "SponsorQuest":
+                gamesocket.send({event: "SPONSOR_QUEST", value: false});
                 break;
             default:
                 console.log(phase);
@@ -168,11 +183,12 @@ class Game extends Component {
                         handleCardClick={this.handleClick.bind(this)}
                     />
                 ) }
-                <MerlinButton onClickButton={this.joinGame}/>
-                <MordredButton onClickButton={this.startGame.bind(this)}/>
+                <MerlinButton/>
+                <MordredButton/>
                 <MiddleArea revealedCard={this.props.game.revealedCard}/>
-                <ReadyButton onClickButton={this.ready}/>
-                <div className="CurrentPhase">{this.props.game.currentPhase}</div>
+
+                <ReadyButton onClickButton={this.ready.bind(this)}/>
+                <DeclineButton onClickButton={this.decline.bind(this)}/>
             </div>
             
         )
