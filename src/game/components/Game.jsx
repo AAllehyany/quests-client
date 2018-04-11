@@ -196,7 +196,7 @@ class Game extends Component {
                 <MordredButton onClickButton={this.startGame.bind(this)}/>
                 <MiddleArea revealedCard={this.props.game.revealedCard}/>
                 <ReadyButton onClickButton={this.ready.bind(this)}/>
-                <DeclineButton onClickButton={this.delcine.bind(this)}/>
+                <DeclineButton onClickButton={this.decline.bind(this)}/>
             </div>
             
         )
