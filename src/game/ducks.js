@@ -10,7 +10,7 @@ const ERROR = 'ERROR';
  */
 const inititalState = {
 
-    players: [{ id: 0, shield: 10 }, { id: 0, shield: 10 }, { id: 0, shield: 10 }, { id: 0, shield: 10 }],
+    players: [],
     playerId: -1,
     revealedCard: {},
     over: false,

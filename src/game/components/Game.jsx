@@ -37,11 +37,12 @@ class Game extends Component {
         this.state = {selected: [], usedWeapons: []};
     }
 
-    startGame() {
-        gamesocket.send({event: "JOIN_GAME"})
-    }
+    joinGame() {
+        console.log("JOIN_GAME");
+        gamesocket.send({event: "JOIN_GAME"});
+    }   
 
-    beginGame() {
+    startGame() {
         gamesocket.send({event: "START_GAME"});
     }
 
@@ -191,8 +192,8 @@ class Game extends Component {
                         handleCardClick={this.handleClick.bind(this)}
                     />
                 ) }
-                <MerlinButton onClickButton={this.startGame}/>
-                <MordredButton onClickButton={this.beginGame.bind(this)}/>
+                <MerlinButton onClickButton={this.joinGame}/>
+                <MordredButton onClickButton={this.startGame.bind(this)}/>
                 <MiddleArea revealedCard={this.props.game.revealedCard}/>
                 <ReadyButton onClickButton={this.ready.bind(this)}/>
                 <DeclineButton onClickButton={this.delcine.bind(this)}/>
