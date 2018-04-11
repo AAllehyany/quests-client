@@ -4,12 +4,11 @@ class ReadyButton extends Component{
 
     constructor(props){
         super(props);
-        this.props = props;
     }
 
     render(){
         let props = this.props;
-        const phase = "SponsorQuest";
+        const phase = "PlayStage";
 
         if(phase==="SetupQuest" || phase==="PlayStage" || phase==="PlayTourney"){
             return(
@@ -23,7 +22,7 @@ class ReadyButton extends Component{
                     <span className="Ready">{"Discard"}</span>
                 </button>
             )
-        }else if(phase==="JoinQuest" || phase==="JoinTourney"){
+        }else if(phase==="JoinQuest" || phase==="JoinTourney" || phase==="JoinGame"){
             return(
                 <button onClick={() => props.onClickButton()} className='ReadyButton'>
                     <span className="Ready">{"Join"}</span>
