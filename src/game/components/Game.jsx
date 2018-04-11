@@ -9,7 +9,8 @@ import MordredButton from './MordredButton';
 import MiddleArea from './MiddleArea';
 import ReadyButton from './ReadyButton';
 import DeclineButton from './DeclineButton';
-import gamesocket from '../../gamesocket'
+import CheatButton from './CheatButton';
+import gamesocket from '../../gamesocket';
 
 const mapStateToProps = (state) => ({
     players: state.game.players,
@@ -169,6 +170,14 @@ class Game extends Component {
         }
     }
 
+    merlin(){
+        let quest = this.props.game.quest;
+    }
+
+    mordred(){
+
+    }
+
     render() {
         let players = this.props.players;
         let current = this.props.players.filter(p => p.id===this.props.playerId);
@@ -183,11 +192,12 @@ class Game extends Component {
                         handleCardClick={this.handleClick.bind(this)}
                     />
                 ) }
-                <MerlinButton onClickButton={this.joinGame} player={current[0]}/>
-                <MordredButton onClickButton={this.startGame.bind(this)} player={current[0]}/>
+                <MerlinButton onClickButton={this.merlin.bind(this)} player={current[0]}/>
+                <MordredButton onClickButton={this.mordred.bind(this)} player={current[0]}/>
                 <MiddleArea revealedCard={this.props.game.revealedCard}/>
                 <ReadyButton onClickButton={this.ready.bind(this)} phase={this.props.game.currentPhase}/>
                 <DeclineButton onClickButton={this.decline.bind(this)} phase={this.props.game.currentPhase}/>
+                <CheatButton onClickButton={this.decline.bind(this)}/>
             </div>
             
         )
