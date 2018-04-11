@@ -41,7 +41,7 @@ class Game extends Component {
     }
 
     beginGame() {
-                gamesocket.send({event: "START_GAME"});
+        gamesocket.send({event: "START_GAME"});
     }
 
     handleClick(card) {
