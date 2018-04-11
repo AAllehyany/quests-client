@@ -197,10 +197,11 @@ class Game extends Component {
                     />
                 ) }
                 <MerlinButton onClickButton={this.joinGame} player={current[0]}/>
-                <MordredButton onClickButton={this.startGame.bind(this)} player={current[0]}/>
+                <MordredButton player={current[0]}/>
                 <MiddleArea revealedCard={this.props.game.revealedCard}/>
                 <ReadyButton onClickButton={this.ready.bind(this)} phase={this.props.game.currentPhase}/>
                 <DeclineButton onClickButton={this.decline.bind(this)} phase={this.props.game.currentPhase}/>
+                <div className="CurrentPhase">{this.props.game.currentPhase}</div>
             </div>
             
         )
