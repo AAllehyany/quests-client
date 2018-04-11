@@ -9,8 +9,7 @@ class MordredButton extends Component{
     render(){
         let props = this.props;
         let player = this.props.player;
-        
-        if(props.player.hand.filter(c=>c.name==="Mordred").length>=1){
+        if(player && props.player.hand.filter(c=>c.name==="Mordred").length>=1){
             return(
                 <button onClick={() => props.onClickButton()} className='MordredButton'>
                     Use Mordred

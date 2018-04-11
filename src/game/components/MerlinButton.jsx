@@ -9,8 +9,8 @@ class MerlinButton extends Component{
     render(){
         let props = this.props;
         let player = this.props.player;
-        
-        if(props.player.field.filter(c=>c.name==="Merlin").length>=1){
+        console.log(player)
+        if(player && props.player.field.filter(c=>c.name==="Merlin").length>=1){
             return(
                 <button onClick={() => props.onClickButton()} className='MerlinButton'>
                     <span className="MerlinUse">Use Merlin</span>

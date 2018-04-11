@@ -147,6 +147,9 @@ class Game extends Component {
             case "SponsorQuest":
                 gamesocket.send({event: "SPONSOR_QUEST", value: true});
                 break;
+            case "HandleEvent":
+                gamesocket.send({event: "HANDLE_EVENT"})
+                break;
             default:
                 console.log(phase);
         }
@@ -188,14 +191,25 @@ class Game extends Component {
         
         return (
             <div>
-                {players.map((player, index) => 
+                {current.map(player => 
                     <Player 
-                        playerNumber={`Player${index+1}`}
+                        playerNumber="Player1"
                         key={player.id}
                         player={player}
                         handleCardClick={this.handleClick.bind(this)}
                     />
+                )}
+
+                {players.filter(p => p.id != this.props.playerId).map((player, index) => 
+                    <Player 
+                        playerNumber={`Player${index+2}`}
+                        key={player.id}
+                        player={player}
+                        faceDown="yes"
+                        
+                    />
                 ) }
+
                 <MerlinButton onClickButton={this.merlin.bind(this)} player={current[0]}/>
                 <MordredButton onClickButton={this.mordred.bind(this)} player={current[0]}/>
                 <MiddleArea revealedCard={this.props.game.revealedCard}/>
