@@ -172,7 +172,7 @@ class Game extends Component {
                 <MordredButton onClickButton={this.startGame.bind(this)}/>
                 <MiddleArea revealedCard={this.props.game.revealedCard}/>
                 <ReadyButton onClickButton={this.ready}/>
-                
+                <div className="CurrentPhase">{this.props.game.currentPhase}</div>
             </div>
             
         )
