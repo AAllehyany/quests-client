@@ -41,6 +41,7 @@ class Game extends Component {
     handleClick(card) {
         const phase = this.props.game.currentPhase;
         let current = this.props.players.filter(p => p.id===this.props.playerId);
+        console.log("Card clicked");
 
         switch(phase) {
             case "SetupQuest":
@@ -99,6 +100,9 @@ class Game extends Component {
                 break;
             case "JoinTourney":
                 gamesocket.send({event: "JOIN_TOURNEY", joined: true, playerId: this.props.playerId});
+                break;
+            case "SetupTourney":
+                gamesocket.send({event: "SETUP_TOURNEY"});
                 break;
             case "SetupQuest":
                 gamesocket.send({event: "SETUP_QUEST"});
