@@ -41,6 +41,7 @@ class Game extends Component {
     handleClick(card) {
         const phase = this.props.game.currentPhase;
         let current = this.props.players.filter(p => p.id===this.props.playerId);
+        console.log("Card clicked");
 
         switch(phase) {
             case "SetupQuest":
@@ -58,7 +59,8 @@ class Game extends Component {
                     gamesocket.send({event: "ADD_CARD_QUEST", data: card.id});
                     break;
 
-            case "PlayTourney":
+            case "SetupTourney":
+                console.log("in tourney");
                 if(card.type!=="weapon" && card.type!=="ally" && card.type!=="amour") return;
                 if(this.state.selected.map(c => c.name).includes(card.name)) return;
                 if(card.type==="amour" && 
@@ -95,11 +97,14 @@ class Game extends Component {
             case "JoinQuest": 
                 gamesocket.send({event: "JOIN_QUEST", value: true});
                 break;
-            case "JoinTournament":
-                gamesocket.send({event: "JOIN_TOURNEY", value: true});
+            case "JoinTourney":
+                gamesocket.send({event: "JOIN_TOURNEY", joined: true, playerId: this.props.playerId});
+                break;
+            case "SetupTourney":
+                gamesocket.send({event: "SETUP_TOURNEY"});
                 break;
             case "SetupQuest":
-                gamesocket.send({event: "SPONSOR_QUEST", value: true});
+                gamesocket.send({event: "SETUP_QUEST"});
                 break;
             case "PlayQuest":
                 gamesocket.send({event: "PLAY_STAGE", data: this.state.selected});
@@ -132,7 +137,7 @@ class Game extends Component {
                 gamesocket.send({event: "JOIN_QUEST", value: false});
                 break;
             case "JoinTourney":
-                gamesocket.send({event: "JOIN_TOURNEY", value: false});
+                gamesocket.send({event: "JOIN_TOURNEY", value: false, playerId: this.props.playerId});
                 break;
             case "SponsorQuest":
                 gamesocket.send({event: "SPONSOR_QUEST", value: false});

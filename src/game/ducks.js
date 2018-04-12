@@ -53,6 +53,7 @@ export default function gameReducer(state = inititalState, action) {
             break;
 
         case ERROR: 
+            console.log(action.data);    
             return Object.assign({}, state, {
                 //popup declaring an error
         }) 
