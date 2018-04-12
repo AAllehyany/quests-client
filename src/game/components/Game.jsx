@@ -174,15 +174,15 @@ class Game extends Component {
     }
 
     merlin(){
-        let quest = this.props.game.quest;
+        // socket.send({event: "MERLIN", stage: s});
     }
 
     mordred(){
-
+        // socket.send({event: "MORDRED", player: p, ally: a});
     }
 
     cheat(){
-
+        gamesocket.send({event: "CHEAT"});
     }
 
     render() {

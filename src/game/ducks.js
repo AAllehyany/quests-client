@@ -1,5 +1,6 @@
 const INVALID_EVENT = 'INVALID_EVENT';
 const GAME_UPDATE = 'GAME_STATE_UPDATE';
+const CHEAT_UPDATE = 'CHEAT_UPDATE';
 const PHASE = 'PHASE_CHANGE';
 const ERROR = 'ERROR';
 const ADD_ID = 'RECEIVE_ID'
@@ -46,6 +47,10 @@ export default function gameReducer(state = inititalState, action) {
                 currentPlayer: data.currentPlayer,
                 currentQuest: data.currentQuest
             })
+
+        case CHEAT_UPDATE:
+            console.log("WHAT A CHEATER\nPLEASE BAN HACKERS");
+            break;
 
         case ERROR: 
             return Object.assign({}, state, {
