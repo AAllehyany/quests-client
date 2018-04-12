@@ -60,11 +60,6 @@ class Game extends Component {
                     break;
 
             case "SetupTourney":
-                console.log("in tourney");
-                if(card.type!=="weapon" && card.type!=="ally" && card.type!=="amour") return;
-                if(this.state.selected.map(c => c.name).includes(card.name)) return;
-                if(card.type==="amour" && 
-                    current.field.map(c=>c.type).includes(card.type)) return;
                 gamesocket.send({event: "ADD_CARD_TOURNEY", data: card.id});
                 break;
 
@@ -109,6 +104,7 @@ class Game extends Component {
             case "PlayQuest":
                 gamesocket.send({event: "PLAY_STAGE", data: this.state.selected});
                 break;
+            
             case "PlayTourney":
                 gamesocket.send({event: "RUN_TOURNEY", data: this.state.selected});
                 break;
@@ -137,7 +133,7 @@ class Game extends Component {
                 gamesocket.send({event: "JOIN_QUEST", value: false});
                 break;
             case "JoinTourney":
-                gamesocket.send({event: "JOIN_TOURNEY", value: false, playerId: this.props.playerId});
+                gamesocket.send({event: "JOIN_TOURNEY", joined: false, playerId: this.props.playerId});
                 break;
             case "SponsorQuest":
                 gamesocket.send({event: "SPONSOR_QUEST", value: false});
@@ -193,6 +189,8 @@ class Game extends Component {
                 <ReadyButton onClickButton={this.ready.bind(this)} phase={this.props.game.currentPhase}/>
                 <DeclineButton onClickButton={this.decline.bind(this)} phase={this.props.game.currentPhase}/>
                 <CheatButton onClickButton={this.cheat.bind(this)}/>
+
+                <div className="CurrentPhase">{this.props.game.currentPhase}</div>
             </div>
             
         )
