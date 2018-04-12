@@ -184,7 +184,6 @@ class Game extends Component {
     render() {
         let players = this.props.players;
         let current = this.props.players.filter(p => p.id===this.props.playerId);
-<<<<<<< HEAD
         if(this.props.game.currentPhase==='Intro'){
             return (
                 <div>
@@ -227,41 +226,6 @@ class Game extends Component {
                 
             )
         }
-=======
-        
-        return (
-            <div>
-                {current.map(player => 
-                    <Player 
-                        playerNumber="Player1"
-                        key={player.id}
-                        player={player}
-                        handleCardClick={this.handleClick.bind(this)}
-                    />
-                )}
-
-                {players.filter(p => p.id != this.props.playerId).map((player, index) => 
-                    <Player 
-                        playerNumber={`Player${index+2}`}
-                        key={player.id}
-                        player={player}
-                        faceDown="yes"
-                        
-                    />
-                ) }
-
-                <MerlinButton onClickButton={this.merlin.bind(this)} player={current[0]}/>
-                <MordredButton onClickButton={this.mordred.bind(this)} player={current[0]}/>
-                <MiddleArea revealedCard={this.props.game.revealedCard} cards={this.props.game.middleCards}/>
-                <ReadyButton sponsorId={this.props.game.currentSponsorId} playerId={this.props.playerId} game={this.props.game} onClickButton={this.ready.bind(this)} phase={this.props.game.currentPhase}/>
-                <DeclineButton sponsorId={this.props.game.currentSponsorId} playerId={this.props.playerId} onClickButton={this.decline.bind(this)} phase={this.props.game.currentPhase}/>
-                <CheatButton onClickButton={this.cheat.bind(this)}/>
-
-                <div className="CurrentPhase">{this.props.game.currentPhase}</div>
-            </div>
-            
-        )
->>>>>>> 53c3e90a0d0536eec630dae3fe5482d4b0ade232
     }
 }
 
