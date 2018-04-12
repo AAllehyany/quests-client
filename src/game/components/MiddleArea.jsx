@@ -10,13 +10,19 @@ class MiddleArea extends Component {
   }
   render() {
     let props = this.props;
-
+    let cards = this.props.cards;
     return(
       <div className="MiddleArea">
         {props.revealedCard ? 
           <img className="midCard" 
           src={"/image/Cards/Story/" + props.revealedCard.name + ".jpg"}/>
           : null}
+
+        {cards.map(card => (
+          <img key={card.id} 
+            className="midCard" 
+            ssrc={"/image/Cards/Story/" + props.revealedCard.name + ".jpg"}/>
+        ))}
       </div>
     )
   }
