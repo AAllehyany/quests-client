@@ -48,32 +48,7 @@ class Game extends Component {
                 if(card.type !== "foe" && card.type !== "tests" && card.type !== "weapon") {
                     return;
                 }
-                else {
-                    let numFoes = this.state.selected.filter(c => c.type === "foe").length;
-                    let numTests = this.state.selected.filter(c => c.type === "test").length;
-                    
-                    if(card.type === "test" && numTests > 0) {
-                        return;
-                    }
-                    
-                    // check for adding weapons.
-                    if( card.type === "weapon" ) {
-                        if(this.state.weapons.map(c => c.name).includes(card.name)) {
-                            return;
-                        }
-                        
-                        if(this.state.selected.length > 0 && this.state.selected[this.state.selected.length - 1].type !== "test") {
-                            this.state.selected.push(card);
-                            this.state.weapons.push(card);
-                        }
-                            
-                    }
-                    else {
-                        this.state.weapons = [];
-                        this.state.selected.push(card);
-                    }
-                    
-                }
+                gamesocket.send({event: "ADD_CARD_SPONSOR", data: card.id});
                 break;
 
             case "PlayQuest":
@@ -81,7 +56,7 @@ class Game extends Component {
                     if(this.state.selected.map(c => c.name).includes(card.name)) return;
                     if(card.type==="amour" && 
                         current.field.map(c=>c.type).includes(card.type)) return;
-                    this.state.selected.push(card);
+                    gamesocket.send({event: "ADD_CARD_QUEST", data: card.id});
                     break;
 
             case "SetupTourney":
@@ -90,7 +65,7 @@ class Game extends Component {
                 if(this.state.selected.map(c => c.name).includes(card.name)) return;
                 if(card.type==="amour" && 
                     current.field.map(c=>c.type).includes(card.type)) return;
-                this.state.selected.push(card);
+                gamesocket.send({event: "ADD_CARD_TOURNEY", data: card.id});
                 break;
 
             case "Arms":
@@ -135,7 +110,7 @@ class Game extends Component {
                 gamesocket.send({event: "SETUP_TOURNEY"});
                 break;
             case "SetupQuest":
-                gamesocket.send({event: "SPONSOR_QUEST", value: true});
+                gamesocket.send({event: "SETUP_QUEST"});
                 break;
             case "PlayQuest":
                 gamesocket.send({event: "PLAY_STAGE", data: this.state.selected});
@@ -179,11 +154,18 @@ class Game extends Component {
     }
 
     merlin(){
-        let quest = this.props.game.quest;
+        let s = null;
+        if(s) gamesocket.send({event: "MERLIN", stage: s});
     }
 
     mordred(){
+        let p = null;
+        let a = null;
+        if(p && a) gamesocket.send({event: "MORDRED", owner: this.props.playerId, player: p, ally: a});
+    }
 
+    cheat(){
+        gamesocket.send({event: "CHEAT"});
     }
 
     render() {
@@ -216,9 +198,7 @@ class Game extends Component {
                 <MiddleArea revealedCard={this.props.game.revealedCard}/>
                 <ReadyButton onClickButton={this.ready.bind(this)} phase={this.props.game.currentPhase}/>
                 <DeclineButton onClickButton={this.decline.bind(this)} phase={this.props.game.currentPhase}/>
-                <CheatButton onClickButton={this.decline.bind(this)}/>
-                <div className="CurrentPhase">{this.props.game.currentPhase}</div>
-
+                <CheatButton onClickButton={this.cheat.bind(this)}/>
             </div>
             
         )

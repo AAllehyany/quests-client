@@ -268,6 +268,22 @@
     transform-origin: 10% 100%;
 }
 
+.Player3Field .card {
+    width: 50%;
+    height: 20%;
+    transform: rotate(90deg);
+    margin-top: -55%;
+    transform-origin: 10% 100%;
+}
+
+.Player4Field .card {
+    width: 50%;
+    height: 20%;
+    transform: rotate(90deg);
+    margin-top: -55%;
+    transform-origin: 10% 100%;
+}
+
 
 .CurrentPhase {
     position: absolute;
