@@ -10,7 +10,7 @@ class DeclineButton extends Component{
         let props = this.props;
         const phase = props.phase;
 
-        if(phase==="JoinQuest" || phase==="JoinTourney" || phase==="SponsorQuest"){
+        if(phase==="RunQuest" || phase==="JoinTourney" || phase==="SponsorQuest"){
             return(
                 <button onClick={() => props.onClickButton()} className='DeclineButton'>
                     <span className="Decline">{"Decline"}</span>
