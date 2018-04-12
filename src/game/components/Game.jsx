@@ -67,21 +67,15 @@ class Game extends Component {
                 break;
 
             case "Arms":
-                if(current.hand.map(c=>c.type).includes("weapon")){
-                    if(this.state.selected.length<1 && card.type==="weapon") this.state.selected.push(card);
-                }else if(current.hand.filter(c=>c.type==="foe").length>=2){
-                    if(this.state.selected.length<2 && card.type==="foe") this.state.selected.push(card);
-                }else if(current.hand.filter(c=>c.type==="foe").length===1){
-                    if(this.state.selected.length<1 && card.type==="foe") this.state.selected.push(card);
-                }
+                gamesocket.send({event: "DISCARD_ARMS", data: card.id});
                 break;
 
             case "DiscardTest":
-                if(this.state.selected.length<current.bids) this.state.selected.push(card);
+                gamesocket.send({event: "DISCARD_TEST", data: card.id});
                 break;
 
             case "Discard":
-                if(current.hand.length-12>this.state.selected.length) this.state.selected.push(card);
+                if(current.hand.length>12) gamesocket.send({event: "DISCARD", data: card.id});;
                 break;
 
             default:
