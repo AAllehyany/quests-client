@@ -18,11 +18,11 @@ class MiddleArea extends Component {
           src={"/image/Cards/Story/" + props.revealedCard.name + ".jpg"}/>
           : null}
 
-        {cards.map(card => (
+        {cards ? cards.map(card => (
           <img key={card.id} 
             className="midCard" 
-            ssrc={"/image/Cards/Story/" + props.revealedCard.name + ".jpg"}/>
-        ))}
+            src={"/image/Cards/Adventure/" + card.name + ".jpg"}/>
+        )) : null}
       </div>
     )
   }

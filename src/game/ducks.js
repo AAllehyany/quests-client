@@ -45,7 +45,8 @@ export default function gameReducer(state = inititalState, action) {
                 currentPhase: data.phase,
                 currentTurn: data.currentTurn,
                 currentPlayer: data.currentPlayer,
-                currentQuest: data.currentQuest
+                currentQuest: data.currentQuest,
+                middleCards: data.middleAreaPowers
             })
 
         case CHEAT_UPDATE:
