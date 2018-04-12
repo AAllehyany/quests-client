@@ -16,10 +16,11 @@ class Player extends Component {
     let props = this.props;
     let cards = this.props.cards;
     let hand = this.props.player.hand || [];
+    let fieldCards = this.props.player.field.concat(this.props.player.temp);
     return(
       <div>
         <PlayerPortrait playerNumber={props.playerNumber} player={props.player} />
-        <PlayerField playerNumber={props.playerNumber} cards={[]} />
+        <PlayerField playerNumber={props.playerNumber} cards={fieldCards} />
         <PlayerHand faceDown={props.faceDown} onCardClick={props.handleCardClick} playerNumber={props.playerNumber} cards={hand} />
       </div>
     )
