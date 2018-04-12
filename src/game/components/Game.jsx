@@ -92,6 +92,9 @@ class Game extends Component {
             case "JoinQuest": 
                 gamesocket.send({event: "JOIN_QUEST", value: true});
                 break;
+            case "RunQuest":
+                gamesocket.send({event: "JOIN_QUEST", joined: true, playerId: this.props.playerId});
+                break;
             case "JoinTourney":
                 gamesocket.send({event: "JOIN_TOURNEY", joined: true, playerId: this.props.playerId});
                 break;
@@ -103,8 +106,7 @@ class Game extends Component {
                 break;
             case "PlayQuest":
                 gamesocket.send({event: "PLAY_STAGE", data: this.state.selected});
-                break;
-            
+                break;    
             case "PlayTourney":
                 gamesocket.send({event: "RUN_TOURNEY", data: this.state.selected});
                 break;
@@ -137,6 +139,9 @@ class Game extends Component {
                 break;
             case "SponsorQuest":
                 gamesocket.send({event: "SPONSOR_QUEST", value: false});
+                break;
+            case "RunQuest":
+                gamesocket.send({event: "JOIN_QUEST", joined: false, playerId: this.props.playerId});
                 break;
             default:
                 console.log(phase);
@@ -185,8 +190,8 @@ class Game extends Component {
 
                 <MerlinButton onClickButton={this.merlin.bind(this)} player={current[0]}/>
                 <MordredButton onClickButton={this.mordred.bind(this)} player={current[0]}/>
-                <MiddleArea revealedCard={this.props.game.revealedCard}/>
-                <ReadyButton onClickButton={this.ready.bind(this)} phase={this.props.game.currentPhase}/>
+                <MiddleArea revealedCard={this.props.game.revealedCard} cards={this.props.game.middleCards}/>
+                <ReadyButton player={this.props.playerId} game={this.props.game} onClickButton={this.ready.bind(this)} phase={this.props.game.currentPhase}/>
                 <DeclineButton onClickButton={this.decline.bind(this)} phase={this.props.game.currentPhase}/>
                 <CheatButton onClickButton={this.cheat.bind(this)}/>
 

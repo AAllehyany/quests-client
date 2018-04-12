@@ -10,7 +10,7 @@ class ReadyButton extends Component{
         let props = this.props;
         const phase = props.phase;
 
-        if(phase==="SetupQuest" || phase==="PlayStage" || phase==="PlayTourney"){
+        if(phase==="SetupQuest" || phase==="PlayStage" || phase==="SetupTourney" || phase==="PlayQuest"){
             return(
                 <button onClick={() => props.onClickButton()} className='ReadyButton'>
                     <span className="Ready">{"Ready"}</span>
@@ -22,7 +22,7 @@ class ReadyButton extends Component{
                     <span className="Ready">{"Discard"}</span>
                 </button>
             )
-        }else if(phase==="JoinQuest" || phase==="JoinTourney" || phase==="JoinGame"){
+        }else if(phase==="RunQuest" || phase==="JoinTourney" || phase==="JoinGame"){
             return(
                 <button onClick={() => props.onClickButton()} className='ReadyButton'>
                     <span className="Ready">{"Join"}</span>
