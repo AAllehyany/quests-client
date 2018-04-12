@@ -105,7 +105,7 @@ class Game extends Component {
                 gamesocket.send({event: "JOIN_TOURNEY", value: true});
                 break;
             case "SetupQuest":
-                gamesocket.send({event: "SPONSOR_QUEST", value: true});
+                gamesocket.send({event: "SETUP_QUEST"});
                 break;
             case "PlayQuest":
                 gamesocket.send({event: "PLAY_STAGE", data: this.state.selected});
