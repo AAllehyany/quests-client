@@ -191,7 +191,7 @@ class Game extends Component {
 
                 <MerlinButton onClickButton={this.merlin.bind(this)} player={current[0]}/>
                 <MordredButton onClickButton={this.mordred.bind(this)} player={current[0]}/>
-                <MiddleArea revealedCard={this.props.game.revealedCard} cards={[]}/>
+                <MiddleArea revealedCard={this.props.game.revealedCard} cards={this.props.game.middleCards}/>
                 <ReadyButton onClickButton={this.ready.bind(this)} phase={this.props.game.currentPhase}/>
                 <DeclineButton onClickButton={this.decline.bind(this)} phase={this.props.game.currentPhase}/>
                 <CheatButton onClickButton={this.cheat.bind(this)}/>
