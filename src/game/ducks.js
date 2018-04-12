@@ -19,7 +19,7 @@ const inititalState = {
     started: false,
     storyDeck: [],
     adventureDeck: [],
-    currentPhase: 'StartTurn',
+    currentPhase: 'Intro',
     currentTurn: -1,
     currentPlayer: 0,
     currentQuest: {}

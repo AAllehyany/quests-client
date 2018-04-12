@@ -27,10 +27,16 @@
     border-radius: 50%;
 }
 
-.PlayerShield .ShieldAmount, .PlayerPower .BattlePower, .MerlinUse, .MordredUse, .MerlinButton, .MordredButton, .ReadyButton, .DeclineButton, .CheatButton{
+.PlayerShield .ShieldAmount, .PlayerPower .BattlePower, .MerlinUse, .MordredUse, .PlayerDropdownText, .AIDropdownText,
+ .MerlinButton, .MordredButton, .ReadyButton, .DeclineButton, .CheatButton, .StartButton{
     line-height: 1.5;
     font-weight: bold;
     text-shadow: 0 0 1px black;
+    font-size: 12pt;
+}
+
+.PlayerDropdown, .AIDropdown{
+    line-height: 1.5;
     font-size: 12pt;
 }
 
@@ -224,6 +230,15 @@
     background: purple;
 }
 
+.StartButton{
+    position: absolute;
+    top: 40%;
+    left: 70%;
+    height: 15%;
+    width: 15%;
+    background: green;
+}
+
 .MiddleArea{
     position: absolute;
     text-align: center;
@@ -291,4 +306,32 @@
     left: 1%;
     color: red;
     font-weight: bold;
+}
+
+.PlayerDropdownText{
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    width: 40%;
+    height: 10%;
+}
+
+.PlayerDropdown{
+    position: absolute;
+    top: 48%;
+    left: 16%;
+}
+
+.AIDropdownText{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 40%;
+    height: 10%;
+}
+
+.AIDropdown{
+    position: absolute;
+    top: 48%;
+    left: 43%;
 }

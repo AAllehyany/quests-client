@@ -10,6 +10,9 @@ import MiddleArea from './MiddleArea';
 import ReadyButton from './ReadyButton';
 import DeclineButton from './DeclineButton';
 import CheatButton from './CheatButton';
+import PlayerDropdown from './PlayerDropdown';
+import AIDropdown from './AIDropdown';
+import StartButton from './StartButton';
 import gamesocket from '../../gamesocket';
 
 const mapStateToProps = (state) => ({
@@ -35,7 +38,7 @@ class Game extends Component {
         // hand when they click on it
         // usedWeapons is to keep track of weapons played so
         // that the player does not play more than one weapon.
-        this.state = {selected: [], usedWeapons: []};
+        this.state = {selected: [], usedWeapons: [], numPlayers: 2, numAIs: 0};
     }
 
     handleClick(card) {
@@ -163,42 +166,66 @@ class Game extends Component {
         gamesocket.send({event: "CHEAT"});
     }
 
+    playerChange(e){
+        this.setState({numPlayers: e.target.value});
+    }
+
+    AIChange(e){
+        this.setState({numAIs: e.target.value});
+    }
+
+    start(){
+        if(this.state.numPlayers>0 && this.state.numAIs>0) {
+            gamesocket.send({event: "SETUP_GAME", players: this.state.numPlayers, AIs: this.state.numAIs});
+        }
+
+    }
+
     render() {
         let players = this.props.players;
         let current = this.props.players.filter(p => p.id===this.props.playerId);
-        
-        return (
-            <div>
-                {current.map(player => 
-                    <Player 
-                        playerNumber="Player1"
-                        key={player.id}
-                        player={player}
-                        handleCardClick={this.handleClick.bind(this)}
-                    />
-                )}
+        if(this.props.game.currentPhase==='Intro'){
+            return (
+                <div>
+                    <PlayerDropdown playerChange={this.playerChange.bind(this)} phase={this.props.game.currentPhase}/>
+                    <AIDropdown AIChange={this.AIChange.bind(this)} phase={this.props.game.currentPhase} players={this.state.numPlayers}/>
+                    <StartButton onClickButton={this.start.bind(this)} phase={this.props.game.currentPhase}/>
+                </div>
+            )
+        }else{
+            return (
+                <div>
+                    {current.map(player => 
+                        <Player 
+                            playerNumber="Player1"
+                            key={player.id}
+                            player={player}
+                            handleCardClick={this.handleClick.bind(this)}
+                        />
+                    )}
 
-                {players.filter(p => p.id != this.props.playerId).map((player, index) => 
-                    <Player 
-                        playerNumber={`Player${index+2}`}
-                        key={player.id}
-                        player={player}
-                        faceDown="yes"
-                        
-                    />
-                ) }
+                    {players.filter(p => p.id != this.props.playerId).map((player, index) => 
+                        <Player 
+                            playerNumber={`Player${index+2}`}
+                            key={player.id}
+                            player={player}
+                            faceDown="yes"
+                            
+                        />
+                    ) }
 
-                <MerlinButton onClickButton={this.merlin.bind(this)} player={current[0]}/>
-                <MordredButton onClickButton={this.mordred.bind(this)} player={current[0]}/>
-                <MiddleArea revealedCard={this.props.game.revealedCard} cards={this.props.game.middleCards}/>
-                <ReadyButton player={this.props.playerId} game={this.props.game} onClickButton={this.ready.bind(this)} phase={this.props.game.currentPhase}/>
-                <DeclineButton onClickButton={this.decline.bind(this)} phase={this.props.game.currentPhase}/>
-                <CheatButton onClickButton={this.cheat.bind(this)}/>
+                    <MerlinButton onClickButton={this.merlin.bind(this)} player={current[0]}/>
+                    <MordredButton onClickButton={this.mordred.bind(this)} player={current[0]}/>
+                    <MiddleArea revealedCard={this.props.game.revealedCard} cards={this.props.game.middleCards}/>
+                    <ReadyButton player={this.props.playerId} game={this.props.game} onClickButton={this.ready.bind(this)} phase={this.props.game.currentPhase}/>
+                    <DeclineButton onClickButton={this.decline.bind(this)} phase={this.props.game.currentPhase}/>
+                    <CheatButton onClickButton={this.cheat.bind(this)}/>
 
-                <div className="CurrentPhase">{this.props.game.currentPhase}</div>
-            </div>
-            
-        )
+                    <div className="CurrentPhase">{this.props.game.currentPhase}</div>
+                </div>
+                
+            )
+        }
     }
 }
 
