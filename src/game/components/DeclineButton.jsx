@@ -9,6 +9,10 @@ class DeclineButton extends Component{
     render(){
         let props = this.props;
         const phase = props.phase;
+        const sponsor = props.sponsorId;
+        const player = props.playerId;
+
+        if(player === sponsor && phase === "RunQuest") return null;
 
         if(phase==="RunQuest" || phase==="JoinTourney" || phase==="SponsorQuest"){
             return(
