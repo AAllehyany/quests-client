@@ -175,11 +175,7 @@ class Game extends Component {
     }
 
     start(){
-<<<<<<< HEAD
         if(this.state.numPlayers>0) {
-=======
-        if(this.state.numPlayers>0 && this.state.numAIs>=0) {
->>>>>>> 8f6f25a183749b17ffe27f4e6498698b4b7fbf70
             gamesocket.send({event: "SETUP_GAME", players: this.state.numPlayers, AIs: this.state.numAIs});
         }
 
